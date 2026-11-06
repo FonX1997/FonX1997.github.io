@@ -58,13 +58,6 @@ sup { font-size: .7em; }
 .profile-links { font-size: 13px; margin-top: 14px; }
 .profile-links a { display: flex; align-items: baseline; gap: 9px; overflow-wrap: anywhere; }
 .profile-links span[aria-hidden] { font-size: 18px; line-height: 1; flex-shrink: 0; }
-.profile-actions { display: grid; gap: 11px; margin-top: 26px; }
-.profile-actions a { display: flex; align-items: center; justify-content: center; gap: 15px; min-height: 42px; padding: 7px 12px; border: 1px solid var(--navy); border-radius: 4px; font-size: 13px; font-weight: 550; transition: background .18s, border-color .18s; }
-.profile-actions a:hover { text-decoration: none; }
-.profile-primary { background: var(--navy); color: white; box-shadow: 0 2px 3px #173f6112; }
-.profile-primary:hover { background: #245478; }
-.profile-secondary { background: transparent; color: var(--navy); }
-.profile-secondary:hover { background: #dceaf7; }
 .content-column { min-width: 0; padding: 31px 36px 25px; }
 section { padding-top: 27px; margin-top: 27px; border-top: 1px solid var(--line); scroll-margin-top: 110px; }
 section:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
@@ -194,8 +187,6 @@ dialog::backdrop { background: #12304b66; }
   .profile-links { grid-column: 2; grid-row: 5; font-size: 11px; margin-top: 5px; }
   .profile-links a { gap: 6px; }
   .profile-links span[aria-hidden] { font-size: 14px; }
-  .profile-actions { grid-column: 1/-1; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
-  .profile-actions a { min-height: 38px; font-size: 12px; }
   .content-column { padding: 27px 23px 22px; }
   h1 { font-size: 26px; }
   .section-title h1, .section-title h2 { font-size: 21px; }

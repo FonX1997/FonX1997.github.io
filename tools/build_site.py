@@ -106,7 +106,6 @@ def sidebar():
       <div class="profile-links">
         {link('mailto:buaalf@buaa.edu.cn','<span aria-hidden="true">✉</span> buaalf@buaa.edu.cn')}
       </div>
-      <div class="profile-actions">{link('publications.html',bi('View publications <span aria-hidden="true">›</span>','查看论文 <span aria-hidden="true">›</span>'),class_='profile-primary')}{link('mailto:buaalf@buaa.edu.cn',bi('Contact me <span aria-hidden="true">›</span>','联系我 <span aria-hidden="true">›</span>'),class_='profile-secondary')}</div>
     </div></aside>'''
 
 def shell(page, content):
