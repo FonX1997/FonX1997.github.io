@@ -13,6 +13,7 @@ The user wants to request website changes conversationally and have the assistan
 - Preserve the user's preference for AI, deep learning, reinforcement learning, and parallel control. Do not add teaching, recruitment, or lab-resource sections unless asked.
 - Do not display the user's GitHub profile or repository links in the public-facing website unless explicitly requested. Keep the Beihang emblem in the shared profile header.
 - Follow the approved navy and pale-blue design: dark horizontal university/navigation header, pale-blue profile sidebar, clear text sections, restrained buttons and dividers. Avoid decorative hero graphics, 3D scientific objects, or ornamental backgrounds.
+- The homepage has no News & updates section. Its Research areas section is a plain text list, without links or button styling.
 - Show complete citations on both the homepage and publication page: all authors, full title, available journal/year/volume/issue/pages or article number, visible DOI, author role, and existing journal indicators and status. Do not invent missing bibliographic fields.
 
 ## Update and publish
