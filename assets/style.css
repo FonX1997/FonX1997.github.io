@@ -32,7 +32,12 @@ sup { font-size: .7em; }
 img { max-width: 100%; }
 .site-layout { display: grid; grid-template-columns: 242px minmax(0, 1fr); gap: 56px; max-width: 1250px; padding: 40px 36px 28px; margin: auto; }
 .profile { position: sticky; top: 34px; align-self: start; background: var(--paper); border: 1px solid var(--line); border-radius: 15px; padding: 23px 21px; box-shadow: 0 7px 24px #243b5005; }
-.institution-label { margin-bottom: 23px; color: var(--blue); font-size: 9px; letter-spacing: 1.7px; font-weight: 700; white-space: nowrap; }
+.university-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 23px; color: var(--blue); }
+.university-brand:hover { text-decoration: none; }
+.university-seal { display: block; width: 52px; height: 52px; object-fit: contain; flex-shrink: 0; }
+.university-wordmark { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.university-name-zh { color: var(--deep); font-size: 11px; font-weight: 600; letter-spacing: .35px; white-space: nowrap; }
+.university-name-en { color: var(--blue); font-size: 7px; font-weight: 650; letter-spacing: .9px; white-space: nowrap; }
 .portrait-link { display: block; width: 156px; margin: 0 0 21px; }
 .portrait { display: block; width: 156px; height: 188px; object-fit: cover; object-position: center 24%; border-radius: 9px; border: 1px solid #e4ebef; box-shadow: 5px 6px 0 #edf3f6; }
 .profile-name { display: block; color: var(--deep); font: 600 31px/1.3 var(--serif); letter-spacing: -.6px; }
@@ -164,7 +169,10 @@ dialog::backdrop { background: #152e455e; backdrop-filter: blur(3px); }
   body { font-size: 14px; }
   .site-layout { display: block; padding: 23px 21px; }
   .profile { position: static; display: grid; grid-template-columns: 87px minmax(0,1fr); column-gap: 21px; padding: 18px; border-radius: 11px; }
-  .institution-label { grid-column: 1/-1; margin-bottom: 17px; font-size: 8px; letter-spacing: 1.6px; }
+  .university-brand { grid-column: 1/-1; gap: 11px; margin-bottom: 17px; }
+  .university-seal { width: 44px; height: 44px; }
+  .university-name-zh { font-size: 12px; letter-spacing: .6px; }
+  .university-name-en { font-size: 7px; letter-spacing: 1.1px; }
   .portrait-link { grid-column: 1; grid-row: 2/6; width: 87px; margin: 0; }
   .portrait { width: 87px; height: 109px; border-radius: 5px; box-shadow: 3px 3px 0 #edf3f6; }
   .profile-name { grid-column: 2; grid-row: 2; font-size: 28px; line-height: 1.2; margin-top: 0; }

@@ -19,7 +19,9 @@ try {
   assert.ok(await page.getByRole('heading',{name:'About me',exact:true}).isVisible());
   assert.equal(await page.locator('.publication').count(),5);
   assert.equal(await page.locator('.cv-links, a[href*="assets/cv/"]').count(),0);
+  assert.equal(await page.locator('a[href*="github.com/FonX1997"]').count(),0);
   assert.ok(await page.locator('.portrait').evaluate(image=>image.complete && image.naturalWidth>0));
+  assert.ok(await page.locator('.university-seal').evaluate(image=>image.complete && image.naturalWidth>0));
   await page.screenshot({path:path.join(output,'desktop-home.png'),fullPage:true});
   await page.screenshot({path:path.join(output,'desktop-home-first-screen.png')});
   await page.getByRole('button',{name:'切换为中文'}).click();
@@ -27,12 +29,14 @@ try {
   await page.getByRole('link',{name:'科研',exact:true}).click();
   assert.equal(await page.locator('html').getAttribute('lang'),'zh');
   assert.equal(await page.locator('.project').count(),4);
+  assert.equal(await page.locator('a[href*="github.com/FonX1997"]').count(),0);
   assert.equal(await page.locator('.cv-links, a[href*="assets/cv/"]').count(),0);
   assert.ok((await page.locator('.project').nth(0).innerText()).includes('62603043'));
   assert.ok((await page.locator('.project').nth(1).innerText()).includes('杭州市软科学'));
   await page.screenshot({path:path.join(output,'desktop-research-zh.png'),fullPage:true});
   await page.getByRole('link',{name:'论文',exact:true}).click();
   assert.equal(await page.locator('#publication-list .publication').count(),14);
+  assert.equal(await page.locator('a[href*="github.com/FonX1997"]').count(),0);
   assert.equal(await page.locator('.cv-links, a[href*="assets/cv/"]').count(),0);
   const search = page.locator('#publication-search');
   await search.fill('ANEU-TCN');
@@ -74,6 +78,7 @@ try {
   for(const filename of ['index.html','research.html','publications.html']){
     await phone.goto(`${base}/${filename}`,{waitUntil:'networkidle'});
     await phone.getByRole('button',{name:'切换为中文'}).click();
+    assert.ok(await phone.locator('.university-seal').evaluate(image=>image.complete && image.naturalWidth>0));
     const bounds = await phone.evaluate(()=>({width:document.documentElement.scrollWidth,viewport:innerWidth}));
     assert.ok(bounds.width<=bounds.viewport,JSON.stringify({filename,...bounds}));
     await phone.screenshot({path:path.join(output,`mobile-${filename.replace('.html','')}.png`),fullPage:true});

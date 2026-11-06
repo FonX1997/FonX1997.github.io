@@ -87,7 +87,10 @@ def section(en, zh, content, id='', extra=''):
 
 def sidebar():
     return f'''<aside class="profile" aria-label="Researcher profile">
-      <p class="institution-label">BEIHANG UNIVERSITY</p>
+      <a class="university-brand" href="https://www.buaa.edu.cn/" target="_blank" rel="noopener noreferrer" aria-label="北京航空航天大学 / Beihang University">
+        <img class="university-seal" src="assets/beihang-seal.jpg" width="52" height="52" alt="北京航空航天大学校徽 / Beihang University emblem">
+        <span class="university-wordmark"><span class="university-name-zh">北京航空航天大学</span><span class="university-name-en">BEIHANG UNIVERSITY</span></span>
+      </a>
       <a class="portrait-link" href="index.html" aria-label="Feng Li homepage"><img class="portrait" src="assets/portrait.jpg" width="160" height="192" alt="Feng Li / 李峰"></a>
       <a class="profile-name" href="index.html">{bi('Feng Li <span class="name-zh">李峰</span>','李峰 <span class="name-zh">Feng Li</span>')}</a>
       <p class="profile-role">{bi('Assistant Research Fellow<br> Postdoctoral Researcher','助理研究员（博士后）')}</p>
@@ -95,7 +98,6 @@ def sidebar():
       <p class="location"><span aria-hidden="true">⌖</span> {bi('Hangzhou, China','中国 · 杭州')}</p>
       <div class="profile-links">
         {link('mailto:buaalf@buaa.edu.cn','<span aria-hidden="true">✉</span> buaalf@buaa.edu.cn')}
-        {link('https://github.com/FonX1997','<span aria-hidden="true">↗</span> GitHub',True)}
       </div>
       <p class="profile-focus">{bi('AI & intelligent control<br>Quantum precision sensing','人工智能与智能控制<br>量子精密测量')}</p>
     </aside>'''
