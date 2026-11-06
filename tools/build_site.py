@@ -144,7 +144,7 @@ home += section('News & updates','近期动态','''<ul class="news-list">
 <li><time>2026</time><div>'''+bi('Awarded the <strong>NSFC Young Scientists Fund (Category C)</strong>, Grant No. 62603043.','主持获批<strong>国家自然科学基金青年科学基金项目（C 类）</strong>，项目编号 62603043。')+'''</div></li>
 <li><time>2025</time><div>'''+bi('Received the <strong>Outstanding Graduate</strong> award from Beihang University.','获北京航空航天大学<strong>“优秀毕业生”</strong>荣誉。')+'</div></li></ul>')
 selected = ''.join(publication(p) for p in PAPERS if p['selected'])
-home += section('Selected publications','代表性论文','<p class="section-note">'+bi('First- or corresponding-author work. Published and accepted articles are marked individually.','第一／通讯作者工作，已接收论文单独标注。')+'</p>'+selected, extra=link('publications.html',bi('All 14 papers →','全部 14 篇 →')))
+home += section('Selected publications','代表性论文',selected, extra=link('publications.html',bi('All 14 papers →','全部 14 篇 →')))
 
 education = '''<ol class="timeline">
 <li><span class="timeline-date">2026 — '''+bi('present','至今')+'''</span><div><h3>'''+bi('Beihang University Hangzhou Innovation Institute','北京航空航天大学杭州创新研究院')+'''</h3><p>'''+bi('Assistant Research Fellow · Postdoctoral Researcher','助理研究员（博士后）')+'''</p></div></li>
