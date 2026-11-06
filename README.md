@@ -20,7 +20,7 @@
 - `index.html`：个人简介、近期动态、代表作、教育经历、学术服务。
 - `research.html`：研究方向与科研项目。
 - `publications.html`：14 篇第一／通讯作者论文，支持检索、年份筛选、BibTeX 复制与下载。
-- `assets/cv/`：现有中英文 PDF 简历。
+- 网站不提供个人简历 PDF 下载；原始中英文简历保留在本地，作为资料参考。
 - `data/publications.json`：论文信息，期刊指标与接收状态按当前中文版简历填写；公开 DOI 的作者及卷页元数据已通过 Crossref 核对，SCIS 按期刊官网记录。
 - `tools/build_site.py`：使用 Python 标准库重新生成全部页面与 BibTeX 文件。
 

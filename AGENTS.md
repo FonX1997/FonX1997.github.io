@@ -9,7 +9,7 @@ The user wants to request website changes conversationally and have the assistan
 - `tools/build_site.py` generates `index.html`, `research.html`, `publications.html`, `assets/publications.js`, and the BibTeX downloads. Edit the generator and data instead of changing generated HTML alone.
 - `data/publications.json` contains the publication records. Preserve the distinction between published and accepted papers; do not invent DOIs, authors, years, or metrics. Maintain both languages and accurate first/corresponding-author labels.
 - `assets/style.css` and `assets/main.js` contain styling and interactive behavior.
-- The current Chinese CV in the adjacent `李峰的个人简历` folder is the content reference. A website-only request does not authorize unrelated CV edits. Refresh the downloadable CV PDFs when the user requests corresponding CV changes.
+- The current Chinese CV in the adjacent `李峰的个人简历` folder is the local content reference. A website-only request does not authorize unrelated CV edits. The user does not want CV PDFs on the public website: keep the original CVs local, do not publish copies or download links, and do not reintroduce them during later updates unless explicitly requested.
 - Preserve the user's preference for AI, deep learning, reinforcement learning, and parallel control. Do not add teaching, recruitment, or lab-resource sections unless asked.
 
 ## Update and publish

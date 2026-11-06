@@ -17,6 +17,7 @@ try {
   await page.goto(base,{waitUntil:'networkidle'});
   assert.equal(await page.locator('h1').innerText(),'About me');
   assert.equal(await page.locator('.publication').count(),5);
+  assert.equal(await page.locator('.cv-links, a[href*="assets/cv/"]').count(),0);
   assert.ok(await page.locator('.portrait').evaluate(image=>image.complete && image.naturalWidth>0));
   await page.screenshot({path:path.join(output,'desktop-home.png'),fullPage:true});
   await page.getByRole('button',{name:'切换为中文'}).click();
@@ -24,11 +25,13 @@ try {
   await page.getByRole('link',{name:'科研',exact:true}).click();
   assert.equal(await page.locator('html').getAttribute('lang'),'zh');
   assert.equal(await page.locator('.project').count(),4);
+  assert.equal(await page.locator('.cv-links, a[href*="assets/cv/"]').count(),0);
   assert.ok((await page.locator('.project').nth(0).innerText()).includes('62603043'));
   assert.ok((await page.locator('.project').nth(1).innerText()).includes('杭州市软科学'));
   await page.screenshot({path:path.join(output,'desktop-research-zh.png'),fullPage:true});
   await page.getByRole('link',{name:'论文',exact:true}).click();
   assert.equal(await page.locator('#publication-list .publication').count(),14);
+  assert.equal(await page.locator('.cv-links, a[href*="assets/cv/"]').count(),0);
   const search = page.locator('#publication-search');
   await search.fill('ANEU-TCN');
   assert.equal(await page.locator('#publication-list .publication:visible').count(),1);
@@ -71,9 +74,13 @@ try {
     assert.ok(bounds.width<=bounds.viewport,JSON.stringify({filename,...bounds}));
     await phone.screenshot({path:path.join(output,`mobile-${filename.replace('.html','')}.png`),fullPage:true});
   }
-  for(const filename of ['assets/cv/Feng-Li-CV.pdf','assets/cv/李峰-中文简历.pdf','assets/bibtex/Feng-Li-publications.bib']){
+  for(const filename of ['assets/bibtex/Feng-Li-publications.bib']){
     const response = await context.request.get(`${base}/${filename}`);
     assert.equal(response.status(),200);
+  }
+  for(const filename of ['assets/cv/Feng-Li-CV.pdf','assets/cv/李峰-中文简历.pdf']){
+    const response = await context.request.get(`${base}/${filename}`);
+    assert.equal(response.status(),404);
   }
   assert.deepEqual(errors,[]);
   const results = {passed:true,pages:3,publications:papers.length,bibtexDialogsChecked:papers.length,acceptedPapers:papers.filter(p=>p.accepted).length,clipboard:true,languagePersistence:true,searchAndYearFilters:true,mobileOverflow:false,screenshots:output};

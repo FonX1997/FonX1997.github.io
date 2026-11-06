@@ -96,10 +96,6 @@ def sidebar():
         {link('mailto:buaalf@buaa.edu.cn','<span aria-hidden="true">✉</span> buaalf@buaa.edu.cn')}
         {link('https://github.com/FonX1997','<span aria-hidden="true">↗</span> GitHub',True)}
       </div>
-      <div class="cv-links"><p>{bi('Curriculum vitae','个人简历')}</p>
-        {link('assets/cv/Feng-Li-CV.pdf', 'English PDF ↗',True)}
-        {link('assets/cv/李峰-中文简历.pdf','中文 PDF ↗',True)}
-      </div>
       <p class="profile-focus">{bi('AI & intelligent control<br>Quantum precision sensing','人工智能与智能控制<br>量子精密测量')}</p>
     </aside>'''
 
