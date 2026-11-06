@@ -72,5 +72,15 @@
     }
     status.textContent = copied ? text('BibTeX copied to clipboard.', 'BibTeX 已复制。') : text('Select and copy the text above, or download the .bib file.', '请选择上方文本复制，或下载 .bib 文件。');
   });
+  const service = document.getElementById('service');
+  if (service && 'IntersectionObserver' in window) {
+    const homeLink = document.querySelector('[data-nav="home"]');
+    const serviceLink = document.querySelector('[data-nav="service"]');
+    new IntersectionObserver(([entry]) => {
+      homeLink.removeAttribute('aria-current');
+      serviceLink.removeAttribute('aria-current');
+      (entry.isIntersecting ? serviceLink : homeLink).setAttribute('aria-current', entry.isIntersecting ? 'location' : 'page');
+    }, {rootMargin: '-90px 0px -20% 0px'}).observe(service);
+  }
   updateLanguage(language());
 })();

@@ -12,6 +12,8 @@ The user wants to request website changes conversationally and have the assistan
 - The current Chinese CV in the adjacent `李峰的个人简历` folder is the local content reference. A website-only request does not authorize unrelated CV edits. The user does not want CV PDFs on the public website: keep the original CVs local, do not publish copies or download links, and do not reintroduce them during later updates unless explicitly requested.
 - Preserve the user's preference for AI, deep learning, reinforcement learning, and parallel control. Do not add teaching, recruitment, or lab-resource sections unless asked.
 - Do not display the user's GitHub profile or repository links in the public-facing website unless explicitly requested. Keep the Beihang emblem in the shared profile header.
+- Follow the approved navy and pale-blue design: dark horizontal university/navigation header, pale-blue profile sidebar, clear text sections, restrained buttons and dividers. Avoid decorative hero graphics, 3D scientific objects, or ornamental backgrounds.
+- Show complete citations on both the homepage and publication page: all authors, full title, available journal/year/volume/issue/pages or article number, visible DOI, author role, and existing journal indicators and status. Do not invent missing bibliographic fields.
 
 ## Update and publish
 

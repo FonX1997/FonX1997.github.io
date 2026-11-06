@@ -54,7 +54,7 @@ for p in PAPERS:
 (ROOT/'assets/bibtex/Feng-Li-publications.bib').write_text('\n'.join(p['bibtex'] for p in PAPERS))
 (ROOT/'assets/publications.js').write_text('window.PUBLICATIONS = '+json.dumps(PAPERS, ensure_ascii=False).replace('<', '\\u003c')+';\n')
 
-def publication(p, full=False):
+def publication(p):
     badges = ''
     if p['top']:
         badges += '<span class="badge top">'+bi('CAS Tier 1 · Top', '中科院一区 Top')+'</span>'
@@ -65,33 +65,40 @@ def publication(p, full=False):
     role = bi('Corresponding author', '通讯作者') if p['role']=='corresponding' else bi('First author', '第一作者')
     title = link(p['url'],esc(p['title']),True) if p.get('url') else esc(p['title'])
     journal = f'<i>{esc(p["journal"])}</i>'
-    issue = f', {esc(p["volume"])}' if p.get('volume') else ''
+    issue = f', {p["year"]}'
+    if p.get('volume'):
+        issue += ', '+esc(p['volume'])
     if p.get('number'):
         issue += f'({esc(p["number"])})'
     if p.get('articleNumber'):
         issue += ': '+esc(p['articleNumber'])
-    elif p.get('pages') and p.get('volume'):
-        issue += ': '+esc(p['pages']).replace('-', '–')
-    issue += f', {p["year"]}.'
-    actions = (link(p['url'],bi('Paper ↗','论文 ↗'),True) if p.get('url') else '')
+    elif p.get('pages'):
+        issue += (': ' if p.get('volume') else ', pp. ')+esc(p['pages']).replace('-', '–')
+    issue += '.'
+    doi_url = 'https://doi.org/'+p['doi'] if p.get('doi') else None
+    paper_url = doi_url or p.get('url')
+    actions = (link(paper_url,'DOI ↗' if doi_url else bi('Paper ↗','论文 ↗'),True,class_='paper-button') if paper_url else '')
     actions += f'<button class="text-button" type="button" data-bibtex="{p["id"]}">BibTeX</button>'
-    metrics = f'<span class="metrics">JCR {p["quartile"]} · IF {p["impact"]:.1f}</span>'
+    metrics = f'<span class="metrics">（JCR {p["quartile"]}, IF {p["impact"]:.1f}）</span>'
+    doi = '<p class="publication-doi">DOI: '+link(doi_url,esc(p['doi']),True)+'</p>' if doi_url else ''
     return f'''<article class="publication" id="paper-{p['id']}" data-year="{p['year']}" data-search="{esc(p['title']+' '+p['journal']+' '+p['role']+' '+' '.join(p['tags']))}">
-      <div class="publication-topline"><span class="role">{role}</span>{badges}<span class="publication-year">{p['year']}</span></div>
-      <h3>{title}</h3><p class="authors">{authors(p,full)}</p>
-      <p class="journal">{journal}{issue}</p><div class="publication-actions">{actions}{metrics}</div>
+      <div class="publication-topline"><span class="publication-year">{p['year']}</span><span class="role">{role}</span>{badges}</div>
+      <h3>{title}</h3><p class="authors">{authors(p,True)}</p>
+      <p class="journal">{journal}{issue} {metrics}</p>{doi}<div class="publication-actions">{actions}</div>
     </article>'''
 
-def section(en, zh, content, id='', extra=''):
-    return f'<section{(" id="+chr(34)+id+chr(34)) if id else ""}><div class="section-title"><h2>{bi(en,zh)}</h2>{extra}</div>{content}</section>'
+def section(en, zh, content, id='', extra='', level=2):
+    return f'<section{(" id="+chr(34)+id+chr(34)) if id else ""}><div class="section-title"><h{level}>{bi(en,zh)}</h{level}>{extra}</div>{content}</section>'
+
+def university_brand():
+    return '''<a class="university-brand" href="https://www.buaa.edu.cn/" target="_blank" rel="noopener noreferrer" aria-label="北京航空航天大学 / Beihang University">
+        <img class="university-seal" src="assets/beihang-seal.jpg" width="56" height="56" alt="北京航空航天大学校徽 / Beihang University emblem">
+        <span class="university-wordmark"><span class="university-name-zh">北京航空航天大学</span><span class="university-name-en">BEIHANG UNIVERSITY</span></span>
+      </a>'''
 
 def sidebar():
-    return f'''<aside class="profile" aria-label="Researcher profile">
-      <a class="university-brand" href="https://www.buaa.edu.cn/" target="_blank" rel="noopener noreferrer" aria-label="北京航空航天大学 / Beihang University">
-        <img class="university-seal" src="assets/beihang-seal.jpg" width="52" height="52" alt="北京航空航天大学校徽 / Beihang University emblem">
-        <span class="university-wordmark"><span class="university-name-zh">北京航空航天大学</span><span class="university-name-en">BEIHANG UNIVERSITY</span></span>
-      </a>
-      <a class="portrait-link" href="index.html" aria-label="Feng Li homepage"><img class="portrait" src="assets/portrait.jpg" width="160" height="192" alt="Feng Li / 李峰"></a>
+    return f'''<aside class="profile" aria-label="Researcher profile"><div class="profile-inner">
+      <a class="portrait-link" href="index.html" aria-label="Feng Li homepage"><img class="portrait" src="assets/portrait.jpg" width="180" height="237" alt="Feng Li / 李峰"></a>
       <a class="profile-name" href="index.html">{bi('Feng Li <span class="name-zh">李峰</span>','李峰 <span class="name-zh">Feng Li</span>')}</a>
       <p class="profile-role">{bi('Assistant Research Fellow<br> Postdoctoral Researcher','助理研究员（博士后）')}</p>
       <p class="profile-affiliation">{bi('Hangzhou Innovation Institute<br> Beihang University','北京航空航天大学<br> 杭州创新研究院')}</p>
@@ -99,24 +106,26 @@ def sidebar():
       <div class="profile-links">
         {link('mailto:buaalf@buaa.edu.cn','<span aria-hidden="true">✉</span> buaalf@buaa.edu.cn')}
       </div>
-      <p class="profile-focus">{bi('AI & intelligent control<br>Quantum precision sensing','人工智能与智能控制<br>量子精密测量')}</p>
-    </aside>'''
+      <div class="profile-actions">{link('publications.html',bi('View publications <span aria-hidden="true">›</span>','查看论文 <span aria-hidden="true">›</span>'),class_='profile-primary')}{link('mailto:buaalf@buaa.edu.cn',bi('Contact me <span aria-hidden="true">›</span>','联系我 <span aria-hidden="true">›</span>'),class_='profile-secondary')}</div>
+    </div></aside>'''
 
 def shell(page, content):
     title = {'home':'Feng Li | Beihang University', 'research':'Research | Feng Li', 'publications':'Publications | Feng Li'}[page]
     style_version = hashlib.sha256((ROOT/'assets/style.css').read_bytes()).hexdigest()[:10]
-    nav = ''.join(f'<a href="{filename}"'+(' aria-current="page"' if name==page else '')+'>'+bi(en,zh)+'</a>' for name,filename,en,zh in [('home','index.html','Home','首页'),('research','research.html','Research','科研'),('publications','publications.html','Publications','论文')])
+    script_version = hashlib.sha256((ROOT/'assets/main.js').read_bytes()).hexdigest()[:10]
+    nav = ''.join(f'<a href="{filename}" data-nav="{name}"'+(' aria-current="page"' if name==page else '')+'>'+bi(en,zh)+'</a>' for name,filename,en,zh in [('home','index.html','Home','首页'),('research','research.html','Research','研究方向'),('publications','publications.html','Publications','学术论文')])
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title><meta name="description" content="Feng Li (李峰), Assistant Research Fellow and Postdoctoral Researcher at Beihang University Hangzhou Innovation Institute. AI, intelligent control, and quantum precision sensing.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css?v={style_version}">
 <script>try{{document.documentElement.lang=localStorage.getItem('feng-li-language')==='zh'?'zh':'en'}}catch{{}}</script>
-<script defer src="assets/publications.js"></script><script defer src="assets/main.js"></script>
+<script defer src="assets/publications.js"></script><script defer src="assets/main.js?v={script_version}"></script>
 <meta property="og:title" content="Feng Li | Beihang University"><meta property="og:description" content="Artificial intelligence, intelligent control, and quantum precision sensing."><meta property="og:type" content="website"><meta property="og:image" content="https://fonx1997.github.io/assets/portrait.jpg">
 <link rel="canonical" href="https://fonx1997.github.io/{'' if page=='home' else page+'.html'}"></head>
 <body data-page="{page}"><a class="skip-link" href="#main">{bi('Skip to content','跳转到正文')}</a>
-<div class="site-layout">{sidebar()}<div class="content-column"><header class="site-header"><nav aria-label="Main navigation">{nav}<a href="index.html#service">{bi('Service','学术服务')}</a></nav>
-<div class="language-switch" role="group" aria-label="Website language"><button type="button" data-set-language="en" aria-label="Read in English">EN</button><span aria-hidden="true">/</span><button type="button" data-set-language="zh" aria-label="切换为中文">中文</button></div></header>
+<header class="site-header"><div class="header-inner">{university_brand()}<nav aria-label="Main navigation">{nav}<a href="index.html#service" data-nav="service">{bi('Service','学术服务')}</a></nav>
+<div class="language-switch" role="group" aria-label="Website language"><button type="button" data-set-language="en" aria-label="Read in English">EN</button><button type="button" data-set-language="zh" aria-label="切换为中文">中文</button></div></div></header>
+<div class="site-layout">{sidebar()}<div class="content-column">
 <main id="main">{content}</main><footer><span>© 2026 Feng Li</span><span>{bi('Last updated: November 2026','更新于 2026 年 11 月')}</span></footer></div></div>
 <dialog id="bibtex-dialog" aria-labelledby="bibtex-title"><div class="dialog-heading"><h2 id="bibtex-title">BibTeX</h2><button id="close-bibtex" class="close-button" type="button" aria-label="Close BibTeX">×</button></div><p id="bibtex-paper-title"></p><pre id="bibtex-code" tabindex="0"></pre><div class="dialog-actions"><a id="download-bibtex" download>Download .bib</a><button class="primary-button" id="copy-bibtex" type="button">{bi('Copy BibTeX','复制 BibTeX')}</button></div><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></dialog>
 </body></html>'''
@@ -127,9 +136,9 @@ FOCUS_EN = '''My research connects <strong>artificial intelligence and intellige
 FOCUS_ZH = '''我的研究围绕<strong>人工智能与智能控制算法</strong>及其在<strong>原子自旋惯性测量、量子精密测量</strong>中的应用展开，重点研究物理约束深度学习、强化学习、自适应动态规划与数字孪生平行控制，开展系统建模、状态估计及多物理场耦合扰动补偿。'''
 
 about = bi(f'<p>{INTRO_EN}</p><p>{FOCUS_EN}</p>',f'<p>{INTRO_ZH}</p><p>{FOCUS_ZH}</p>',True)
-about += '<div class="research-keywords"><span>Physics-informed learning</span><span>Reinforcement learning</span><span>Parallel control</span><span>Quantum sensing</span></div>'
-home = '''<section class="hero" aria-labelledby="hero-title"><div class="hero-copy"><p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>'''+bi('AI · CONTROL · QUANTUM SENSING','人工智能 · 智能控制 · 量子传感')+'''</p><h1 id="hero-title">'''+bi('Learning & control.<br><em>Quantum precision.</em>','智能算法与控制<br><em>赋能量子精密测量</em>')+'''</h1><p class="hero-description">'''+bi('Connecting physical insight with learning algorithms for precision sensing systems.','融合物理模型与学习算法，研究精密测量系统的建模、估计与控制。')+'''</p><div class="hero-actions">'''+link('research.html',bi('Explore research <span aria-hidden="true">↗</span>','研究方向 <span aria-hidden="true">↗</span>'),class_='hero-primary')+link('publications.html',bi('Publications <span aria-hidden="true">→</span>','学术论文 <span aria-hidden="true">→</span>'),class_='hero-secondary')+'''</div></div><figure class="hero-art" aria-hidden="true"><img src="assets/research-orbit.svg" width="240" height="250" alt=""></figure></section>'''
-home += section('About me','关于我',about,id='about')
+home = section('About me','学术简介',about,id='about',level=1)
+home_directions = '<ul class="home-directions">'+''.join('<li>'+link('research.html',bi(en,zh))+'</li>' for en,zh in [('AI & intelligent control','人工智能与智能控制'),('Atomic spin inertial sensing','原子自旋惯性测量'),('Quantum precision measurement','量子精密测量')])+'</ul>'
+home += section('Research areas','研究方向',home_directions,id='research-areas')
 home += section('News & updates','近期动态','''<ul class="news-list">
 <li><time>2026</time><div>'''+bi('Awarded a <strong>Hangzhou Soft Science Research Project</strong> as Principal Investigator, studying innovation mechanisms for AI application scenarios.','主持获批<strong>杭州市软科学研究项目（一般项目）</strong>，研究面向“人工智能+”的杭州场景应用创新机制。')+'''</div></li>
 <li><time>2026</time><div>'''+bi('Awarded the <strong>NSFC Young Scientists Fund (Category C)</strong>, Grant No. 62603043.','主持获批<strong>国家自然科学基金青年科学基金项目（C 类）</strong>，项目编号 62603043。')+'''</div></li>
@@ -191,7 +200,7 @@ pubpage += '<p class="page-intro">'+bi('14 first- or corresponding-author journa
 pubpage += '<div class="publication-summary"><span>'+bi('3 CAS Tier 1 Top papers','中科院一区 Top 论文 3 篇')+'</span><span>'+bi('1 ESI Highly Cited Paper','ESI 高被引论文 1 篇')+'</span></div>'
 pubpage += '<div class="publication-toolbar"><label class="search-label"><span class="visually-hidden">'+bi('Search publications','检索论文')+'</span><input type="search" id="publication-search" placeholder="Search papers, journals, or topics…" autocomplete="off"></label><label><span class="visually-hidden">'+bi('Publication year','发表年份')+'</span><select id="publication-year"><option value="all">All years / 全部年份</option>'+''.join(f'<option value="{year}">{year}</option>' for year in sorted({p['year'] for p in PAPERS},reverse=True))+'</select></label></div>'
 pubpage += '<div class="publication-list-info"><span id="publication-count" role="status">14 papers</span>'+link('assets/bibtex/Feng-Li-publications.bib',bi('Download all BibTeX ↓','下载全部 BibTeX ↓'),download='Feng-Li-publications.bib')+'</div>'
-pubpage += '<div id="publication-list">'+''.join(publication(p,True) for p in PAPERS)+'</div><p id="no-results" hidden>'+bi('No matching papers. Try another term or year.','没有匹配的论文，请尝试其他关键词或年份。')+'</p>'
+pubpage += '<div id="publication-list">'+''.join(publication(p) for p in PAPERS)+'</div><p id="no-results" hidden>'+bi('No matching papers. Try another term or year.','没有匹配的论文，请尝试其他关键词或年份。')+'</p>'
 pubpage += '<p class="publication-footnote">'+bi('* Corresponding author. Acceptance status and journal indicators follow the current CV. The Applied Soft Computing article is listed under its 2027 issue year.','* 表示通讯作者。接收状态及期刊指标按现有简历列出；Applied Soft Computing 论文标注的是 2027 年卷期年份。')+'</p>'
 (ROOT/'publications.html').write_text(shell('publications',pubpage))
 print('Built three bilingual pages and 15 BibTeX files from 14 publication records.')

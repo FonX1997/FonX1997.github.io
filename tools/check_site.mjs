@@ -25,8 +25,35 @@ try {
   await page.screenshot({path:path.join(output,'desktop-home.png'),fullPage:true});
   await page.screenshot({path:path.join(output,'desktop-home-first-screen.png')});
   await page.getByRole('button',{name:'切换为中文'}).click();
-  assert.ok(await page.getByRole('heading',{name:'关于我',exact:true}).isVisible());
-  await page.getByRole('link',{name:'科研',exact:true}).click();
+  assert.ok(await page.getByRole('heading',{name:'学术简介',exact:true}).isVisible());
+  const metadata = JSON.parse(await fs.readFile(new URL('../data/publications.json',import.meta.url),'utf8'));
+  async function checkFullCitations(records) {
+    for (const paper of records) {
+      const article = page.locator(`#paper-${paper.id}`);
+      assert.equal(await article.locator('h3').innerText(),paper.title);
+      const names = await article.locator('.authors').innerText();
+      for(const author of paper.authors) assert.ok(names.includes(`${author.given} ${author.family}`),`${paper.id}: missing author`);
+      assert.ok(!names.includes('et al.'));
+      const journal = await article.locator('.journal').innerText();
+      for(const value of [paper.journal,String(paper.year),paper.volume,paper.articleNumber,paper.pages?.replaceAll('-','–')].filter(Boolean)) assert.ok(journal.includes(value),`${paper.id}: missing ${value}`);
+      assert.ok(journal.includes(`JCR ${paper.quartile}`));
+      assert.ok(journal.includes(`IF ${paper.impact.toFixed(1)}`));
+      if(paper.doi) {
+        assert.ok((await article.locator('.publication-doi').innerText()).includes(paper.doi));
+        assert.equal(await article.locator('.paper-button').getAttribute('href'),`https://doi.org/${paper.doi}`);
+      } else {
+        assert.equal(await article.locator('.publication-doi').count(),0);
+      }
+      if(paper.accepted) assert.ok(await article.locator('.badge.accepted').isVisible());
+    }
+  }
+  await checkFullCitations(metadata.filter(p=>p.selected));
+  assert.equal(await page.locator('.hero-art').count(),0);
+  await page.locator('[data-nav="service"]').click();
+  await page.waitForFunction(()=>document.querySelector('[data-nav="service"]').getAttribute('aria-current')==='location');
+  await page.locator('[data-nav="home"]').click();
+  await page.waitForFunction(()=>document.querySelector('[data-nav="home"]').getAttribute('aria-current')==='page');
+  await page.locator('[data-nav="research"]').click();
   assert.equal(await page.locator('html').getAttribute('lang'),'zh');
   assert.equal(await page.locator('.project').count(),4);
   assert.equal(await page.locator('a[href*="github.com/FonX1997"]').count(),0);
@@ -34,10 +61,11 @@ try {
   assert.ok((await page.locator('.project').nth(0).innerText()).includes('62603043'));
   assert.ok((await page.locator('.project').nth(1).innerText()).includes('杭州市软科学'));
   await page.screenshot({path:path.join(output,'desktop-research-zh.png'),fullPage:true});
-  await page.getByRole('link',{name:'论文',exact:true}).click();
+  await page.locator('[data-nav="publications"]').click();
   assert.equal(await page.locator('#publication-list .publication').count(),14);
   assert.equal(await page.locator('a[href*="github.com/FonX1997"]').count(),0);
   assert.equal(await page.locator('.cv-links, a[href*="assets/cv/"]').count(),0);
+  await checkFullCitations(metadata);
   const search = page.locator('#publication-search');
   await search.fill('ANEU-TCN');
   assert.equal(await page.locator('#publication-list .publication:visible').count(),1);
@@ -104,7 +132,7 @@ try {
     assert.equal(response.status(),404);
   }
   assert.deepEqual(errors,[]);
-  const results = {passed:true,pages:3,publications:papers.length,bibtexDialogsChecked:papers.length,acceptedPapers:papers.filter(p=>p.accepted).length,clipboard:true,languagePersistence:true,searchAndYearFilters:true,mobileOverflow:false,screenshots:output};
+  const results = {passed:true,pages:3,publications:papers.length,fullCitations:true,bibtexDialogsChecked:papers.length,acceptedPapers:papers.filter(p=>p.accepted).length,clipboard:true,languagePersistence:true,searchAndYearFilters:true,serviceNavigation:true,mobileOverflow:false,screenshots:output};
   await fs.writeFile(new URL('./qa-results.json',import.meta.url),JSON.stringify(results,null,2));
   console.log(JSON.stringify(results));
 } finally { await browser.close(); }
