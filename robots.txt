@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fonx1997.github.io/sitemap.xml

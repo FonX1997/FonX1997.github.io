@@ -1,0 +1,745 @@
+[
+  {
+    "id": "scis",
+    "journal": "Science China Information Sciences",
+    "title": "Digital Twin-Enabled Parallel Stabilization of Electron Spin Polarization in Optically Pumped Hybrid Spin Ensembles",
+    "year": 2026,
+    "doi": "10.1360/s11432-026-5050-y",
+    "role": "first",
+    "tags": [
+      "parallel",
+      "quantum"
+    ],
+    "selected": true,
+    "accepted": false,
+    "impact": 8.1,
+    "quartile": "Q1",
+    "top": true,
+    "esi": false,
+    "authors": [
+      {
+        "given": "Feng",
+        "family": "Li"
+      },
+      {
+        "given": "Zhuo",
+        "family": "Wang"
+      },
+      {
+        "given": "Fei-Yue",
+        "family": "Wang"
+      },
+      {
+        "given": "Ruigang",
+        "family": "Wang"
+      },
+      {
+        "given": "Yonglin",
+        "family": "Tian"
+      },
+      {
+        "given": "Haoying",
+        "family": "Pang"
+      },
+      {
+        "given": "Jiahang",
+        "family": "Li"
+      },
+      {
+        "given": "Qinglai",
+        "family": "Wei"
+      },
+      {
+        "given": "Derong",
+        "family": "Liu"
+      }
+    ],
+    "source": "https://www.sciengine.com/doi/10.1360/s11432-026-5050-y",
+    "url": "https://www.sciengine.com/doi/10.1360/s11432-026-5050-y"
+  },
+  {
+    "id": "tsmcs",
+    "journal": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
+    "title": "Machine Learning for Quantum Sensing Systems: An Integrated Survey of Preparation, Measurement, Inference, and Control",
+    "year": 2026,
+    "doi": "10.1109/tsmc.2026.3744356",
+    "role": "first",
+    "tags": [
+      "learning",
+      "quantum"
+    ],
+    "selected": true,
+    "accepted": false,
+    "impact": 8.7,
+    "quartile": "Q1",
+    "top": true,
+    "esi": false,
+    "authors": [
+      {
+        "given": "Feng",
+        "family": "Li"
+      },
+      {
+        "given": "Zhuo",
+        "family": "Wang"
+      },
+      {
+        "given": "Derong",
+        "family": "Liu"
+      },
+      {
+        "given": "Kai",
+        "family": "Wei"
+      },
+      {
+        "given": "Shan",
+        "family": "Xue"
+      },
+      {
+        "given": "Ruigang",
+        "family": "Wang"
+      },
+      {
+        "given": "Xinxiu",
+        "family": "Zhou"
+      },
+      {
+        "given": "Haoying",
+        "family": "Pang"
+      },
+      {
+        "given": "Qi",
+        "family": "Zheng"
+      },
+      {
+        "given": "Jiahang",
+        "family": "Li"
+      },
+      {
+        "given": "Xusheng",
+        "family": "Lei"
+      },
+      {
+        "given": "Wei",
+        "family": "Quan"
+      }
+    ],
+    "pages": "1-18",
+    "source": "https://api.crossref.org/works/10.1109/tsmc.2026.3744356",
+    "url": "https://doi.org/10.1109/tsmc.2026.3744356"
+  },
+  {
+    "id": "tfs",
+    "journal": "IEEE Transactions on Fuzzy Systems",
+    "title": "Belief- and Risk-Driven Interval Type-2 Neuro-Fuzzy Output-Feedback Control for Partially Observed Stochastic Nonlinear Systems",
+    "year": 2026,
+    "doi": "10.1109/tfuzz.2026.3745076",
+    "role": "first",
+    "tags": [
+      "learning",
+      "control"
+    ],
+    "selected": true,
+    "accepted": false,
+    "impact": 10.2,
+    "quartile": "Q1",
+    "top": true,
+    "esi": false,
+    "authors": [
+      {
+        "given": "Feng",
+        "family": "Li"
+      },
+      {
+        "given": "Jiaxin",
+        "family": "Liu"
+      },
+      {
+        "given": "Zhuo",
+        "family": "Wang"
+      },
+      {
+        "given": "Min",
+        "family": "Zhang"
+      },
+      {
+        "given": "Ruigang",
+        "family": "Wang"
+      },
+      {
+        "given": "Jiahang",
+        "family": "Li"
+      }
+    ],
+    "pages": "1-14",
+    "source": "https://api.crossref.org/works/10.1109/tfuzz.2026.3745076",
+    "url": "https://doi.org/10.1109/tfuzz.2026.3745076"
+  },
+  {
+    "id": "fr",
+    "journal": "Fundamental Research",
+    "title": "Stochastic Spin Modeling and ANEU-TCN for Directional Magnetic Noise Estimation in Atomic Comagnetometers",
+    "year": 2026,
+    "doi": "10.1016/j.fmre.2026.05.018",
+    "role": "first",
+    "tags": [
+      "learning",
+      "quantum"
+    ],
+    "selected": true,
+    "accepted": false,
+    "impact": 7.0,
+    "quartile": "Q1",
+    "top": false,
+    "esi": false,
+    "authors": [
+      {
+        "given": "Feng",
+        "family": "Li"
+      },
+      {
+        "given": "Zhuo",
+        "family": "Wang"
+      },
+      {
+        "given": "Haoying",
+        "family": "Pang"
+      },
+      {
+        "given": "Jiahang",
+        "family": "Li"
+      },
+      {
+        "given": "Xinxiu",
+        "family": "Zhou"
+      },
+      {
+        "given": "Xusheng",
+        "family": "Lei"
+      },
+      {
+        "given": "Ruigang",
+        "family": "Wang"
+      },
+      {
+        "given": "Wei",
+        "family": "Quan"
+      }
+    ],
+    "source": "https://api.crossref.org/works/10.1016/j.fmre.2026.05.018",
+    "url": "https://doi.org/10.1016/j.fmre.2026.05.018"
+  },
+  {
+    "id": "asc",
+    "journal": "Applied Soft Computing",
+    "title": "Basis-Adaptive Spectral Optimization via Learnable Graph Fourier Bases",
+    "year": 2027,
+    "doi": "10.1016/j.asoc.2026.116607",
+    "role": "first",
+    "tags": [
+      "learning"
+    ],
+    "selected": false,
+    "accepted": false,
+    "impact": 7.8,
+    "quartile": "Q1",
+    "top": false,
+    "esi": false,
+    "authors": [
+      {
+        "given": "Feng",
+        "family": "Li"
+      },
+      {
+        "given": "Zhuo",
+        "family": "Wang"
+      },
+      {
+        "given": "Min",
+        "family": "Zhang"
+      },
+      {
+        "given": "Qi",
+        "family": "Zheng"
+      }
+    ],
+    "volume": "204",
+    "pages": "116607",
+    "articleNumber": "116607",
+    "source": "https://api.crossref.org/works/10.1016/j.asoc.2026.116607",
+    "url": "https://doi.org/10.1016/j.asoc.2026.116607"
+  },
+  {
+    "id": "tim",
+    "journal": "IEEE Transactions on Instrumentation and Measurement",
+    "title": "Magnetic Field Compensation Control for Spin-Exchange Relaxation-Free Comagnetometer Using Reinforcement Learning",
+    "year": 2023,
+    "doi": "10.1109/tim.2023.3301054",
+    "role": "first",
+    "tags": [
+      "learning",
+      "control",
+      "quantum"
+    ],
+    "selected": false,
+    "accepted": false,
+    "impact": 7.0,
+    "quartile": "Q1",
+    "top": false,
+    "esi": false,
+    "authors": [
+      {
+        "given": "Feng",
+        "family": "Li"
+      },
+      {
+        "given": "Zhuo",
+        "family": "Wang"
+      },
+      {
+        "given": "Ruigang",
+        "family": "Wang"
+      },
+      {
+        "given": "Sixun",
+        "family": "Liu"
+      },
+      {
+        "given": "Bodong",
+        "family": "Qin"
+      },
+      {
+        "given": "Zehua",
+        "family": "Liu"
+      },
+      {
+        "given": "Xinxiu",
+        "family": "Zhou"
+      }
+    ],
+    "volume": "72",
+    "pages": "1-10",
+    "source": "https://api.crossref.org/works/10.1109/tim.2023.3301054",
+    "url": "https://doi.org/10.1109/tim.2023.3301054"
+  },
+  {
+    "id": "measurement",
+    "journal": "Measurement",
+    "title": "Spin-Decoupling Calibration Method for Coil Constants in Optically Pumped Comagnetometers",
+    "year": 2026,
+    "doi": "10.1016/j.measurement.2025.118819",
+    "role": "first",
+    "tags": [
+      "quantum"
+    ],
+    "selected": false,
+    "accepted": false,
+    "impact": 6.1,
+    "quartile": "Q1",
+    "top": false,
+    "esi": false,
+    "authors": [
+      {
+        "given": "Feng",
+        "family": "Li"
+      },
+      {
+        "given": "Haoying",
+        "family": "Pang"
+      },
+      {
+        "given": "Zhihong",
+        "family": "Wu"
+      },
+      {
+        "given": "Zhuo",
+        "family": "Wang"
+      },
+      {
+        "given": "Jiahang",
+        "family": "Li"
+      },
+      {
+        "given": "Xinxiu",
+        "family": "Zhou"
+      },
+      {
+        "given": "Xusheng",
+        "family": "Lei"
+      },
+      {
+        "given": "Ruigang",
+        "family": "Wang"
+      },
+      {
+        "given": "Wei",
+        "family": "Quan"
+      }
+    ],
+    "volume": "257",
+    "pages": "118819",
+    "articleNumber": "118819",
+    "source": "https://api.crossref.org/works/10.1016/j.measurement.2025.118819",
+    "url": "https://doi.org/10.1016/j.measurement.2025.118819"
+  },
+  {
+    "id": "nld",
+    "journal": "Nonlinear Dynamics",
+    "title": "Heating Temperature Control and Driving Voltage Nonlinear Feedback of LCVR for Stabilizing Laser Power in Atomic Spin Gyroscopes",
+    "year": 2025,
+    "doi": "10.1007/s11071-025-11122-2",
+    "role": "first",
+    "tags": [
+      "control",
+      "quantum"
+    ],
+    "selected": false,
+    "accepted": false,
+    "impact": 5.7,
+    "quartile": "Q1",
+    "top": false,
+    "esi": false,
+    "authors": [
+      {
+        "given": "Feng",
+        "family": "Li"
+      },
+      {
+        "given": "Zhuo",
+        "family": "Wang"
+      },
+      {
+        "given": "Ruigang",
+        "family": "Wang"
+      },
+      {
+        "given": "Haoying",
+        "family": "Pang"
+      },
+      {
+        "given": "Jiahang",
+        "family": "Li"
+      },
+      {
+        "given": "Min",
+        "family": "Zhang"
+      },
+      {
+        "given": "Zhihong",
+        "family": "Wu"
+      },
+      {
+        "given": "Xinxiu",
+        "family": "Zhou"
+      },
+      {
+        "given": "Xusheng",
+        "family": "Lei"
+      }
+    ],
+    "volume": "113",
+    "number": "14",
+    "pages": "18399-18411",
+    "source": "https://api.crossref.org/works/10.1007/s11071-025-11122-2",
+    "url": "https://doi.org/10.1007/s11071-025-11122-2"
+  },
+  {
+    "id": "cep",
+    "journal": "Control Engineering Practice",
+    "title": "Exponential Decay Adaptive Robust Control for Electron Spin Magnetization in Atomic Spin Gyroscopes",
+    "year": 2025,
+    "doi": "10.1016/j.conengprac.2025.106405",
+    "role": "first",
+    "tags": [
+      "control",
+      "quantum"
+    ],
+    "selected": false,
+    "accepted": false,
+    "impact": 5.3,
+    "quartile": "Q1",
+    "top": false,
+    "esi": false,
+    "authors": [
+      {
+        "given": "Feng",
+        "family": "Li"
+      },
+      {
+        "given": "Zhuo",
+        "family": "Wang"
+      },
+      {
+        "given": "Ruigang",
+        "family": "Wang"
+      },
+      {
+        "given": "Haoying",
+        "family": "Pang"
+      },
+      {
+        "given": "Wenfeng",
+        "family": "Fan"
+      },
+      {
+        "given": "Xinxiu",
+        "family": "Zhou"
+      },
+      {
+        "given": "Xusheng",
+        "family": "Lei"
+      },
+      {
+        "given": "Wei",
+        "family": "Quan"
+      }
+    ],
+    "volume": "163",
+    "pages": "106405",
+    "articleNumber": "106405",
+    "source": "https://api.crossref.org/works/10.1016/j.conengprac.2025.106405",
+    "url": "https://doi.org/10.1016/j.conengprac.2025.106405"
+  },
+  {
+    "id": "qst",
+    "journal": "Quantum Science and Technology",
+    "title": "Certified Worst-Case Fidelity Bounds for Quantum Gates under Structured Uncertainty",
+    "year": 2026,
+    "doi": null,
+    "role": "corresponding",
+    "tags": [
+      "control",
+      "quantum"
+    ],
+    "selected": false,
+    "accepted": true,
+    "impact": 4.9,
+    "quartile": "Q1",
+    "top": false,
+    "esi": false,
+    "authors": [
+      {
+        "given": "Jiaxin",
+        "family": "Liu"
+      },
+      {
+        "given": "Feng",
+        "family": "Li"
+      },
+      {
+        "given": "Zhuo",
+        "family": "Wang"
+      },
+      {
+        "given": "Min",
+        "family": "Zhang"
+      }
+    ]
+  },
+  {
+    "id": "iscience",
+    "journal": "iScience",
+    "title": "In Situ Real-Time Measurement for Electron Spin Polarization in Atomic Spin Gyroscopes",
+    "year": 2025,
+    "doi": "10.1016/j.isci.2025.111757",
+    "role": "first",
+    "tags": [
+      "quantum"
+    ],
+    "selected": true,
+    "accepted": false,
+    "impact": 4.5,
+    "quartile": "Q1",
+    "top": false,
+    "esi": true,
+    "authors": [
+      {
+        "given": "Feng",
+        "family": "Li"
+      },
+      {
+        "given": "Haoying",
+        "family": "Pang"
+      },
+      {
+        "given": "Zhuo",
+        "family": "Wang"
+      },
+      {
+        "given": "Wenfeng",
+        "family": "Fan"
+      },
+      {
+        "given": "Min",
+        "family": "Zhang"
+      },
+      {
+        "given": "Zehua",
+        "family": "Liu"
+      },
+      {
+        "given": "Jiahang",
+        "family": "Li"
+      },
+      {
+        "given": "Bodong",
+        "family": "Qin"
+      },
+      {
+        "given": "Xinxiu",
+        "family": "Zhou"
+      },
+      {
+        "given": "Xusheng",
+        "family": "Lei"
+      },
+      {
+        "given": "Ruigang",
+        "family": "Wang"
+      }
+    ],
+    "volume": "28",
+    "number": "2",
+    "pages": "111757",
+    "articleNumber": "111757",
+    "source": "https://api.crossref.org/works/10.1016/j.isci.2025.111757",
+    "url": "https://doi.org/10.1016/j.isci.2025.111757"
+  },
+  {
+    "id": "ijss",
+    "journal": "International Journal of Systems Science",
+    "title": "PI-FAS-CLO: Physics-Informed Fully Actuated System-Coordinate Learning Observer",
+    "year": 2026,
+    "doi": null,
+    "role": "first",
+    "tags": [
+      "learning",
+      "control"
+    ],
+    "selected": false,
+    "accepted": true,
+    "impact": 4.3,
+    "quartile": "Q1",
+    "top": false,
+    "esi": false,
+    "authors": [
+      {
+        "given": "Feng",
+        "family": "Li"
+      },
+      {
+        "given": "Min",
+        "family": "Zhang"
+      },
+      {
+        "given": "Zhuo",
+        "family": "Wang"
+      },
+      {
+        "given": "Jiahang",
+        "family": "Li"
+      },
+      {
+        "given": "Ruigang",
+        "family": "Wang"
+      }
+    ]
+  },
+  {
+    "id": "aqt",
+    "journal": "Advanced Quantum Technologies",
+    "title": "Effects of Stochastic Magnetic Noise on the SERF Co-Magnetometer",
+    "year": 2024,
+    "doi": "10.1002/qute.202400040",
+    "role": "first",
+    "tags": [
+      "quantum"
+    ],
+    "selected": false,
+    "accepted": false,
+    "impact": 4.3,
+    "quartile": "Q2",
+    "top": false,
+    "esi": false,
+    "authors": [
+      {
+        "given": "Feng",
+        "family": "Li"
+      },
+      {
+        "given": "Zhuo",
+        "family": "Wang"
+      },
+      {
+        "given": "Wenfeng",
+        "family": "Fan"
+      },
+      {
+        "given": "Bodong",
+        "family": "Qin"
+      },
+      {
+        "given": "Xinxiu",
+        "family": "Zhou"
+      },
+      {
+        "given": "Haoying",
+        "family": "Pang"
+      },
+      {
+        "given": "Wei",
+        "family": "Quan"
+      }
+    ],
+    "volume": "7",
+    "number": "6",
+    "articleNumber": "2400040",
+    "source": "https://api.crossref.org/works/10.1002/qute.202400040",
+    "url": "https://doi.org/10.1002/qute.202400040"
+  },
+  {
+    "id": "mst",
+    "journal": "Measurement Science and Technology",
+    "title": "Physics-Informed Neural-Network Calibration of Pump–Probe Nonorthogonality in SERF Co-Magnetometers",
+    "year": 2026,
+    "doi": "10.1088/1361-6501/ae9330",
+    "role": "corresponding",
+    "tags": [
+      "learning",
+      "quantum"
+    ],
+    "selected": false,
+    "accepted": false,
+    "impact": 3.7,
+    "quartile": "Q1",
+    "top": false,
+    "esi": false,
+    "authors": [
+      {
+        "given": "Jiahang",
+        "family": "Li"
+      },
+      {
+        "given": "Zhuo",
+        "family": "Wang"
+      },
+      {
+        "given": "Feng",
+        "family": "Li"
+      },
+      {
+        "given": "Ruigang",
+        "family": "Wang"
+      },
+      {
+        "given": "Haoying",
+        "family": "Pang"
+      }
+    ],
+    "volume": "37",
+    "number": "32",
+    "pages": "325902",
+    "source": "https://api.crossref.org/works/10.1088/1361-6501/ae9330",
+    "url": "https://doi.org/10.1088/1361-6501/ae9330"
+  }
+]
