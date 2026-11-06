@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 270" fill="none">
+  <circle cx="130" cy="120" r="103" stroke="#dce6ed" stroke-dasharray="2 7"/>
+  <circle cx="130" cy="120" r="78" stroke="#e5edf1"/>
+  <path d="M28 120h204M130 18v204" stroke="#e5edf1"/>
+  <ellipse cx="130" cy="120" rx="93" ry="37" transform="rotate(-33 130 120)" stroke="#32627f" stroke-width="1.5"/>
+  <ellipse cx="130" cy="120" rx="93" ry="37" transform="rotate(33 130 120)" stroke="#86afa9" stroke-width="1.5"/>
+  <ellipse cx="130" cy="120" rx="36" ry="86" stroke="#b2c8d6" stroke-width="1.2"/>
+  <circle cx="130" cy="120" r="36" fill="#f0f6f7" stroke="#c7dbdf"/>
+  <circle cx="130" cy="120" r="22" fill="#edf3f7" stroke="#a8c3d0"/>
+  <path d="M130 138v-34m-6 8 6-8 6 8" stroke="#1c5474" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m85 99 13-13m-9 1 9-1-1 9M163 157l12-12m-9 1 9-1-1 9M80 153l13 9m-4-8 4 8-9-1M168 80l8 14m1-9-1 9-8-4" stroke="#7ba69e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="63" cy="163" r="5" fill="#1e5b7c"/>
+  <circle cx="194" cy="163" r="4.5" fill="#508c80"/>
+  <circle cx="131" cy="34" r="4" fill="#a2becf"/>
+  <circle cx="207" cy="72" r="3" fill="#b6cad6"/>
+  <circle cx="39" cy="68" r="2.5" fill="#95b6b1"/>
+  <path d="M130 223v13M57 236h146" stroke="#c7d6df"/>
+  <g fill="#fbfcfd" stroke="#d6e2e9"><rect x="23" y="233" width="64" height="24" rx="5"/><rect x="98" y="233" width="64" height="24" rx="5"/><rect x="173" y="233" width="64" height="24" rx="5"/></g>
+  <g fill="#527084" font-family="Arial,sans-serif" font-size="7" letter-spacing="1" text-anchor="middle"><text x="55" y="248">MODEL</text><text x="130" y="248">LEARN</text><text x="205" y="248">CONTROL</text></g>
+</svg>

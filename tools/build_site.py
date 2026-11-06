@@ -1,5 +1,6 @@
 """Generate a buildless, bilingual academic website from publication metadata."""
 import html
+import hashlib
 import json
 from pathlib import Path
 
@@ -15,7 +16,7 @@ def bi(en, zh, block=False):
 
 def link(url, text, external=False, **attrs):
     extra = ' target="_blank" rel="noopener noreferrer"' if external else ''
-    extra += ''.join(f' {key.replace("_", "-")}="{esc(value)}"' for key,value in attrs.items())
+    extra += ''.join(f' {key.rstrip("_").replace("_", "-")}="{esc(value)}"' for key,value in attrs.items())
     return f'<a href="{esc(url)}"{extra}>{text}</a>'
 
 def authors(paper, full=False):
@@ -76,7 +77,7 @@ def publication(p, full=False):
     actions += f'<button class="text-button" type="button" data-bibtex="{p["id"]}">BibTeX</button>'
     metrics = f'<span class="metrics">JCR {p["quartile"]} · IF {p["impact"]:.1f}</span>'
     return f'''<article class="publication" id="paper-{p['id']}" data-year="{p['year']}" data-search="{esc(p['title']+' '+p['journal']+' '+p['role']+' '+' '.join(p['tags']))}">
-      <div class="publication-topline"><span class="role">{role}</span>{badges}</div>
+      <div class="publication-topline"><span class="role">{role}</span>{badges}<span class="publication-year">{p['year']}</span></div>
       <h3>{title}</h3><p class="authors">{authors(p,full)}</p>
       <p class="journal">{journal}{issue}</p><div class="publication-actions">{actions}{metrics}</div>
     </article>'''
@@ -89,8 +90,8 @@ def sidebar():
       <p class="institution-label">BEIHANG UNIVERSITY</p>
       <a class="portrait-link" href="index.html" aria-label="Feng Li homepage"><img class="portrait" src="assets/portrait.jpg" width="160" height="192" alt="Feng Li / 李峰"></a>
       <a class="profile-name" href="index.html">{bi('Feng Li <span class="name-zh">李峰</span>','李峰 <span class="name-zh">Feng Li</span>')}</a>
-      <p class="profile-role">{bi('Assistant Research Fellow<br>Postdoctoral Researcher','助理研究员（博士后）')}</p>
-      <p class="profile-affiliation">{bi('Hangzhou Innovation Institute<br>Beihang University','北京航空航天大学<br>杭州创新研究院')}</p>
+      <p class="profile-role">{bi('Assistant Research Fellow<br> Postdoctoral Researcher','助理研究员（博士后）')}</p>
+      <p class="profile-affiliation">{bi('Hangzhou Innovation Institute<br> Beihang University','北京航空航天大学<br> 杭州创新研究院')}</p>
       <p class="location"><span aria-hidden="true">⌖</span> {bi('Hangzhou, China','中国 · 杭州')}</p>
       <div class="profile-links">
         {link('mailto:buaalf@buaa.edu.cn','<span aria-hidden="true">✉</span> buaalf@buaa.edu.cn')}
@@ -101,11 +102,12 @@ def sidebar():
 
 def shell(page, content):
     title = {'home':'Feng Li | Beihang University', 'research':'Research | Feng Li', 'publications':'Publications | Feng Li'}[page]
+    style_version = hashlib.sha256((ROOT/'assets/style.css').read_bytes()).hexdigest()[:10]
     nav = ''.join(f'<a href="{filename}"'+(' aria-current="page"' if name==page else '')+'>'+bi(en,zh)+'</a>' for name,filename,en,zh in [('home','index.html','Home','首页'),('research','research.html','Research','科研'),('publications','publications.html','Publications','论文')])
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title><meta name="description" content="Feng Li (李峰), Assistant Research Fellow and Postdoctoral Researcher at Beihang University Hangzhou Innovation Institute. AI, intelligent control, and quantum precision sensing.">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css?v={style_version}">
 <script>try{{document.documentElement.lang=localStorage.getItem('feng-li-language')==='zh'?'zh':'en'}}catch{{}}</script>
 <script defer src="assets/publications.js"></script><script defer src="assets/main.js"></script>
 <meta property="og:title" content="Feng Li | Beihang University"><meta property="og:description" content="Artificial intelligence, intelligent control, and quantum precision sensing."><meta property="og:type" content="website"><meta property="og:image" content="https://fonx1997.github.io/assets/portrait.jpg">
@@ -124,7 +126,8 @@ FOCUS_ZH = '''我的研究围绕<strong>人工智能与智能控制算法</stron
 
 about = bi(f'<p>{INTRO_EN}</p><p>{FOCUS_EN}</p>',f'<p>{INTRO_ZH}</p><p>{FOCUS_ZH}</p>',True)
 about += '<div class="research-keywords"><span>Physics-informed learning</span><span>Reinforcement learning</span><span>Parallel control</span><span>Quantum sensing</span></div>'
-home = '<p class="eyebrow">'+bi('ACADEMIC HOMEPAGE','个人学术主页')+'</p><h1>'+bi('About me','关于我')+'</h1>'+about
+home = '''<section class="hero" aria-labelledby="hero-title"><div class="hero-copy"><p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>'''+bi('AI · CONTROL · QUANTUM SENSING','人工智能 · 智能控制 · 量子传感')+'''</p><h1 id="hero-title">'''+bi('Learning & control.<br><em>Quantum precision.</em>','智能算法与控制<br><em>赋能量子精密测量</em>')+'''</h1><p class="hero-description">'''+bi('Connecting physical insight with learning algorithms for precision sensing systems.','融合物理模型与学习算法，研究精密测量系统的建模、估计与控制。')+'''</p><div class="hero-actions">'''+link('research.html',bi('Explore research <span aria-hidden="true">↗</span>','研究方向 <span aria-hidden="true">↗</span>'),class_='hero-primary')+link('publications.html',bi('Publications <span aria-hidden="true">→</span>','学术论文 <span aria-hidden="true">→</span>'),class_='hero-secondary')+'''</div></div><figure class="hero-art" aria-hidden="true"><img src="assets/research-orbit.svg" width="240" height="250" alt=""></figure></section>'''
+home += section('About me','关于我',about,id='about')
 home += section('News & updates','近期动态','''<ul class="news-list">
 <li><time>2026</time><div>'''+bi('Awarded a <strong>Hangzhou Soft Science Research Project</strong> as Principal Investigator, studying innovation mechanisms for AI application scenarios.','主持获批<strong>杭州市软科学研究项目（一般项目）</strong>，研究面向“人工智能+”的杭州场景应用创新机制。')+'''</div></li>
 <li><time>2026</time><div>'''+bi('Awarded the <strong>NSFC Young Scientists Fund (Category C)</strong>, Grant No. 62603043.','主持获批<strong>国家自然科学基金青年科学基金项目（C 类）</strong>，项目编号 62603043。')+'''</div></li>
