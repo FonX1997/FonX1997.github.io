@@ -2,10 +2,13 @@
 import html
 import hashlib
 import json
+import base64
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PAPERS = json.loads((ROOT/'data/publications.json').read_text())
+seal_data = base64.b64encode((ROOT/'assets/beihang-seal.jpg').read_bytes()).decode('ascii')
+(ROOT/'assets/favicon.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451"><title>Beihang University</title><image width="451" height="451" href="data:image/jpeg;base64,'+seal_data+'"/></svg>\n')
 
 def esc(value):
     return html.escape(str(value), quote=True)
@@ -112,11 +115,12 @@ def shell(page, content):
     title = {'home':'Feng Li | Beihang University', 'research':'Research | Feng Li', 'publications':'Publications | Feng Li'}[page]
     style_version = hashlib.sha256((ROOT/'assets/style.css').read_bytes()).hexdigest()[:10]
     script_version = hashlib.sha256((ROOT/'assets/main.js').read_bytes()).hexdigest()[:10]
+    icon_version = hashlib.sha256((ROOT/'assets/favicon.svg').read_bytes()).hexdigest()[:10]
     nav = ''.join(f'<a href="{filename}" data-nav="{name}"'+(' aria-current="page"' if name==page else '')+'>'+bi(en,zh)+'</a>' for name,filename,en,zh in [('home','index.html','Home','首页'),('research','research.html','Research','研究方向'),('publications','publications.html','Publications','学术论文')])
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title><meta name="description" content="Feng Li (李峰), Assistant Research Fellow and Postdoctoral Researcher at Beihang University Hangzhou Innovation Institute. AI, intelligent control, and quantum precision sensing.">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css?v={style_version}">
+<link rel="icon" href="assets/beihang-seal.jpg?v={icon_version}" type="image/jpeg" sizes="451x451"><link rel="icon" href="assets/favicon.svg?v={icon_version}" type="image/svg+xml" sizes="any"><link rel="stylesheet" href="assets/style.css?v={style_version}">
 <script>try{{document.documentElement.lang=localStorage.getItem('feng-li-language')==='zh'?'zh':'en'}}catch{{}}</script>
 <script defer src="assets/publications.js"></script><script defer src="assets/main.js?v={script_version}"></script>
 <meta property="og:title" content="Feng Li | Beihang University"><meta property="og:description" content="Artificial intelligence, intelligent control, and quantum precision sensing."><meta property="og:type" content="website"><meta property="og:image" content="https://fonx1997.github.io/assets/portrait.jpg">
