@@ -141,7 +141,7 @@ home_directions = '<ul class="home-directions">'+''.join('<li>'+link('research.h
 home += section('Research areas','研究方向',home_directions,id='research-areas')
 home += section('News & updates','近期动态','''<ul class="news-list">
 <li><time>2026</time><div>'''+bi('Awarded a <strong>Hangzhou Soft Science Research Project</strong> as Principal Investigator, studying innovation mechanisms for AI application scenarios.','主持获批<strong>杭州市软科学研究项目（一般项目）</strong>，研究面向“人工智能+”的杭州场景应用创新机制。')+'''</div></li>
-<li><time>2026</time><div>'''+bi('Awarded the <strong>NSFC Young Scientists Fund (Category C)</strong>, Grant No. 62603043.','主持获批<strong>国家自然科学基金青年科学基金项目（C 类）</strong>，项目编号 62603043。')+'''</div></li>
+<li><time>2026</time><div>'''+bi('Awarded the <strong>NSFC Young Scientists Fund (Category C)</strong> for “Physics-Constrained Deep-Learning Compensation of Multiphysics Coupled Disturbances in Atomic Spin Inertial Measurement”.','主持获批<strong>国家自然科学基金青年科学基金项目（C 类）</strong>，项目名称为“基于物理约束深度学习的原子自旋惯性测量多物理场耦合扰动补偿研究”。')+'''</div></li>
 <li><time>2025</time><div>'''+bi('Received the <strong>Outstanding Graduate</strong> award from Beihang University.','获北京航空航天大学<strong>“优秀毕业生”</strong>荣誉。')+'</div></li></ul>')
 selected = ''.join(publication(p) for p in PAPERS if p['selected'])
 home += section('Selected publications','代表性论文',selected, extra=link('publications.html',bi('All 14 papers →','全部 14 篇 →')))
