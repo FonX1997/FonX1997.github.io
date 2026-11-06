@@ -1,0 +1,5 @@
+node_modules
+.DS_Store
+*.zip
+preview-*.png
+tools/qa-results.json
