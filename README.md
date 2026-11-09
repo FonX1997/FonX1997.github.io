@@ -28,4 +28,4 @@
 
 更新数据后，在本目录运行 `python3 tools/build_site.py` 并重新上传生成的页面、`assets/publications.js` 和 BibTeX 文件。头像为 `assets/portrait.jpg`。
 
-目前 QST、IJSS 两篇论文按简历标为已接收，未补造 DOI；ASC 使用 2027 年卷期年份。页面不含占位链接或虚构学术信息。
+目前 QST 论文按简历标为已接收，未补造 DOI；IJSS 已于 2026 年 11 月 6 日在线发表，DOI 为 10.1080/00207721.2026.2756564，页码 1–24，尚无卷期；ASC 使用 2027 年卷期年份。页面不含占位链接或虚构学术信息。

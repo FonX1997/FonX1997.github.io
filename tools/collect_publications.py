@@ -21,7 +21,7 @@ SPECS = [
     ('cep', 'Control Engineering Practice', 'Exponential Decay Adaptive Robust Control for Electron Spin Magnetization in Atomic Spin Gyroscopes', '10.1016/j.conengprac.2025.106405', 'first', ['control', 'quantum'], False),
     ('qst', 'Quantum Science and Technology', 'Certified Worst-Case Fidelity Bounds for Quantum Gates under Structured Uncertainty', None, 'corresponding', ['control', 'quantum'], False),
     ('iscience', 'iScience', 'In Situ Real-Time Measurement for Electron Spin Polarization in Atomic Spin Gyroscopes', '10.1016/j.isci.2025.111757', 'first', ['quantum'], True),
-    ('ijss', 'International Journal of Systems Science', 'PI-FAS-CLO: Physics-Informed Fully Actuated System-Coordinate Learning Observer', None, 'first', ['learning', 'control'], False),
+    ('ijss', 'International Journal of Systems Science', 'PI-FAS-CLO: Physics-Informed Fully Actuated System-Coordinate Learning Observer', '10.1080/00207721.2026.2756564', 'first', ['learning', 'control'], False),
     ('aqt', 'Advanced Quantum Technologies', 'Effects of Stochastic Magnetic Noise on the SERF Co-Magnetometer', '10.1002/qute.202400040', 'first', ['quantum'], False),
     ('mst', 'Measurement Science and Technology', 'Physics-Informed Neural-Network Calibration of Pump–Probe Nonorthogonality in SERF Co-Magnetometers', '10.1088/1361-6501/ae9330', 'corresponding', ['learning', 'quantum'], False),
 ]

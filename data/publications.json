@@ -610,14 +610,14 @@
     "journal": "International Journal of Systems Science",
     "title": "PI-FAS-CLO: Physics-Informed Fully Actuated System-Coordinate Learning Observer",
     "year": 2026,
-    "doi": null,
+    "doi": "10.1080/00207721.2026.2756564",
     "role": "first",
     "tags": [
       "learning",
       "control"
     ],
     "selected": false,
-    "accepted": true,
+    "accepted": false,
     "impact": 4.3,
     "quartile": "Q1",
     "top": false,
@@ -643,7 +643,10 @@
         "given": "Ruigang",
         "family": "Wang"
       }
-    ]
+    ],
+    "pages": "1-24",
+    "url": "https://doi.org/10.1080/00207721.2026.2756564",
+    "source": "https://api.crossref.org/works/10.1080/00207721.2026.2756564"
   },
   {
     "id": "aqt",
