@@ -116,13 +116,14 @@ def shell(page, content):
     style_version = hashlib.sha256((ROOT/'assets/style.css').read_bytes()).hexdigest()[:10]
     script_version = hashlib.sha256((ROOT/'assets/main.js').read_bytes()).hexdigest()[:10]
     icon_version = hashlib.sha256((ROOT/'assets/favicon.svg').read_bytes()).hexdigest()[:10]
+    publications_version = hashlib.sha256((ROOT/'assets/publications.js').read_bytes()).hexdigest()[:10]
     nav = ''.join(f'<a href="{filename}" data-nav="{name}"'+(' aria-current="page"' if name==page else '')+'>'+bi(en,zh)+'</a>' for name,filename,en,zh in [('home','index.html','Home','首页'),('research','research.html','Research','研究方向'),('publications','publications.html','Publications','学术论文')])
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title><meta name="description" content="Feng Li (李峰), Assistant Research Fellow and Postdoctoral Researcher at Beihang University Hangzhou Innovation Institute. AI, intelligent control, and quantum precision sensing.">
 <link rel="icon" href="assets/beihang-seal.jpg?v={icon_version}" type="image/jpeg" sizes="451x451"><link rel="icon" href="assets/favicon.svg?v={icon_version}" type="image/svg+xml" sizes="any"><link rel="stylesheet" href="assets/style.css?v={style_version}">
 <script>try{{document.documentElement.lang=localStorage.getItem('feng-li-language')==='zh'?'zh':'en'}}catch{{}}</script>
-<script defer src="assets/publications.js"></script><script defer src="assets/main.js?v={script_version}"></script>
+<script defer src="assets/publications.js?v={publications_version}"></script><script defer src="assets/main.js?v={script_version}"></script>
 <meta property="og:title" content="Feng Li | Beihang University"><meta property="og:description" content="Artificial intelligence, intelligent control, and quantum precision sensing."><meta property="og:type" content="website"><meta property="og:image" content="https://fonx1997.github.io/assets/portrait.jpg">
 <link rel="canonical" href="https://fonx1997.github.io/{'' if page=='home' else page+'.html'}"></head>
 <body data-page="{page}"><a class="skip-link" href="#main">{bi('Skip to content','跳转到正文')}</a>
