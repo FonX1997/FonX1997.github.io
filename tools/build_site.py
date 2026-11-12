@@ -108,6 +108,7 @@ def sidebar():
       <p class="location"><span aria-hidden="true">⌖</span> {bi('Hangzhou, China','中国 · 杭州')}</p>
       <div class="profile-links">
         {link('mailto:buaalf@buaa.edu.cn','<span aria-hidden="true">✉</span> buaalf@buaa.edu.cn')}
+        {link('https://scholar.google.com.hk/citations?hl=zh-CN&user=TNCvefQAAAAJ&view_op=list_works&sortby=pubdate','<span aria-hidden="true">↗</span>'+bi('Google Scholar','谷歌学术'),True,class_='scholar-link')}
       </div>
     </div></aside>'''
 
