@@ -94,10 +94,11 @@ def section(en, zh, content, id='', extra='', level=2):
     return f'<section{(" id="+chr(34)+id+chr(34)) if id else ""}><div class="section-title"><h{level}>{bi(en,zh)}</h{level}>{extra}</div>{content}</section>'
 
 def university_brand():
-    return '''<a class="university-brand" href="https://www.buaa.edu.cn/" target="_blank" rel="noopener noreferrer" aria-label="北京航空航天大学 / Beihang University">
-        <img class="university-seal" src="assets/beihang-seal.jpg" width="56" height="56" alt="北京航空航天大学校徽 / Beihang University emblem">
-        <span class="university-wordmark"><span class="university-name-zh">北京航空航天大学</span><span class="university-name-en">BEIHANG UNIVERSITY</span></span>
-      </a>'''
+    return '''<div class="institution-brands" role="group" aria-label="所属单位 / Affiliated institutions">
+        <img class="institution-logo" src="assets/beihang-hzii-logo.png" width="2745" height="416" alt="">
+        <a class="institution-link university-brand" href="https://www.buaa.edu.cn/" target="_blank" rel="noopener noreferrer" aria-label="北京航空航天大学 / Beihang University"></a>
+        <a class="institution-link institute-brand" href="https://hzii.buaa.edu.cn/" target="_blank" rel="noopener noreferrer" aria-label="北京航空航天大学杭州创新研究院 / Beihang University Hangzhou Innovation Institute"></a>
+      </div>'''
 
 def sidebar():
     return f'''<aside class="profile" aria-label="Researcher profile"><div class="profile-inner">

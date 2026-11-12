@@ -2,6 +2,8 @@
 
 李峰的中英双语学术主页，供 GitHub Pages 发布。
 
+顶部北航与杭研院并列标识使用杭研院官网原图：`https://hzii.buaa.edu.cn/images/logox.png`，本地保存为 `assets/beihang-hzii-logo.png`。
+
 ## 通过对话更新网站
 
 本目录已连接 `FonX1997/FonX1997.github.io` 的 `main` 分支。完成一次仓库 Deploy key 写入授权后，可以直接在 Codex 中描述修改需求，由助手修改、检查并推送，GitHub Pages 自动重新发布。具体维护步骤见 `AGENTS.md`。

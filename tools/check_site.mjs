@@ -21,7 +21,7 @@ try {
   assert.equal(await page.locator('.cv-links, a[href*="assets/cv/"]').count(),0);
   assert.equal(await page.locator('a[href*="github.com/FonX1997"]').count(),0);
   assert.ok(await page.locator('.portrait').evaluate(image=>image.complete && image.naturalWidth>0));
-  assert.ok(await page.locator('.university-seal').evaluate(image=>image.complete && image.naturalWidth>0));
+  assert.ok(await page.locator('.institution-logo').evaluate(image=>image.complete && image.naturalWidth>0));
   await page.screenshot({path:path.join(output,'desktop-home.png'),fullPage:true});
   await page.screenshot({path:path.join(output,'desktop-home-first-screen.png')});
   await page.getByRole('button',{name:'切换为中文'}).click();
@@ -106,7 +106,7 @@ try {
   for(const filename of ['index.html','research.html','publications.html']){
     await phone.goto(`${base}/${filename}`,{waitUntil:'networkidle'});
     await phone.getByRole('button',{name:'切换为中文'}).click();
-    assert.ok(await phone.locator('.university-seal').evaluate(image=>image.complete && image.naturalWidth>0));
+    assert.ok(await phone.locator('.institution-logo').evaluate(image=>image.complete && image.naturalWidth>0));
     const bounds = await phone.evaluate(()=>({width:document.documentElement.scrollWidth,viewport:innerWidth}));
     assert.ok(bounds.width<=bounds.viewport,JSON.stringify({filename,...bounds}));
     await phone.screenshot({path:path.join(output,`mobile-${filename.replace('.html','')}.png`),fullPage:true});
