@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PAPERS = json.loads((ROOT/'data/publications.json').read_text())
+PAPER_COUNT = len(PAPERS)
 seal_data = base64.b64encode((ROOT/'assets/beihang-seal.jpg').read_bytes()).decode('ascii')
 (ROOT/'assets/favicon.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451"><title>Beihang University</title><image width="451" height="451" href="data:image/jpeg;base64,'+seal_data+'"/></svg>\n')
 
@@ -146,7 +147,7 @@ home = section('About me','学术简介',about,id='about',level=1)
 home_directions = '<ul class="home-directions">'+''.join('<li>'+bi(en,zh)+'</li>' for en,zh in [('AI & intelligent control','人工智能与智能控制'),('Atomic spin inertial sensing','原子自旋惯性测量'),('Quantum precision measurement','量子精密测量')])+'</ul>'
 home += section('Research areas','研究方向',home_directions,id='research-areas')
 selected = ''.join(publication(p) for p in PAPERS if p['selected'])
-home += section('Selected publications','代表性论文',selected, extra=link('publications.html',bi('All 14 papers →','全部 14 篇 →')))
+home += section('Selected publications','代表性论文',selected, extra=link('publications.html',bi(f'All {PAPER_COUNT} papers →',f'全部 {PAPER_COUNT} 篇 →')))
 
 education = '''<ol class="timeline">
 <li><span class="timeline-date">2026 — '''+bi('present','至今')+'''</span><div><h3>'''+bi('Beihang University Hangzhou Innovation Institute','北京航空航天大学杭州创新研究院')+'''</h3><p>'''+bi('Assistant Research Fellow · Postdoctoral Researcher','助理研究员（博士后）')+'''</p></div></li>
@@ -198,11 +199,11 @@ research += section('Research projects','科研项目',project_html,id='projects
 (ROOT/'research.html').write_text(shell('research',research))
 
 pubpage = '<p class="eyebrow">'+bi('PUBLICATIONS','学术论文')+'</p><h1>'+bi('Research publications','主要论著')+'</h1>'
-pubpage += '<p class="page-intro">'+bi('14 first- or corresponding-author journal articles, including published and accepted work.','第一／通讯作者期刊论文 14 篇，含已发表及已接收论文。')+'</p>'
+pubpage += '<p class="page-intro">'+bi(f'{PAPER_COUNT} first- or corresponding-author journal articles.',f'第一／通讯作者期刊论文 {PAPER_COUNT} 篇。')+'</p>'
 pubpage += '<div class="publication-summary"><span>'+bi('3 CAS Tier 1 Top papers','中科院一区 Top 论文 3 篇')+'</span><span>'+bi('1 ESI Highly Cited Paper','ESI 高被引论文 1 篇')+'</span></div>'
 pubpage += '<div class="publication-toolbar"><label class="search-label"><span class="visually-hidden">'+bi('Search publications','检索论文')+'</span><input type="search" id="publication-search" placeholder="Search papers, journals, or topics…" autocomplete="off"></label><label><span class="visually-hidden">'+bi('Publication year','发表年份')+'</span><select id="publication-year"><option value="all">All years / 全部年份</option>'+''.join(f'<option value="{year}">{year}</option>' for year in sorted({p['year'] for p in PAPERS},reverse=True))+'</select></label></div>'
-pubpage += '<div class="publication-list-info"><span id="publication-count" role="status">14 papers</span>'+link('assets/bibtex/Feng-Li-publications.bib',bi('Download all BibTeX ↓','下载全部 BibTeX ↓'),download='Feng-Li-publications.bib')+'</div>'
+pubpage += f'<div class="publication-list-info"><span id="publication-count" role="status">{PAPER_COUNT} papers</span>'+link('assets/bibtex/Feng-Li-publications.bib',bi('Download all BibTeX ↓','下载全部 BibTeX ↓'),download='Feng-Li-publications.bib')+'</div>'
 pubpage += '<div id="publication-list">'+''.join(publication(p) for p in PAPERS)+'</div><p id="no-results" hidden>'+bi('No matching papers. Try another term or year.','没有匹配的论文，请尝试其他关键词或年份。')+'</p>'
-pubpage += '<p class="publication-footnote">'+bi('* Corresponding author. Acceptance status and journal indicators follow the current CV. The Applied Soft Computing article is listed under its 2027 issue year.','* 表示通讯作者。接收状态及期刊指标按现有简历列出；Applied Soft Computing 论文标注的是 2027 年卷期年份。')+'</p>'
+pubpage += '<p class="publication-footnote">'+bi('* Corresponding author. Journal indicators follow the current CV. The Applied Soft Computing article is listed under its 2027 issue year.','* 表示通讯作者。期刊指标按现有简历列出；Applied Soft Computing 论文标注的是 2027 年卷期年份。')+'</p>'
 (ROOT/'publications.html').write_text(shell('publications',pubpage))
-print('Built three bilingual pages and 15 BibTeX files from 14 publication records.')
+print(f'Built three bilingual pages and {PAPER_COUNT+1} BibTeX files from {PAPER_COUNT} publication records.')

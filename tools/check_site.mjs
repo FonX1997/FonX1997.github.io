@@ -62,7 +62,8 @@ try {
   assert.ok((await page.locator('.project').nth(1).innerText()).includes('杭州市软科学'));
   await page.screenshot({path:path.join(output,'desktop-research-zh.png'),fullPage:true});
   await page.locator('[data-nav="publications"]').click();
-  assert.equal(await page.locator('#publication-list .publication').count(),14);
+  assert.equal(await page.locator('#publication-list .publication').count(),13);
+  assert.equal(await page.locator('#paper-qst').count(),0);
   assert.equal(await page.locator('a[href*="github.com/FonX1997"]').count(),0);
   assert.equal(await page.locator('.cv-links, a[href*="assets/cv/"]').count(),0);
   await checkFullCitations(metadata);
@@ -96,7 +97,7 @@ try {
     assert.equal(await page.locator('#bibtex-dialog').isVisible(),false);
   }
   await page.getByRole('button',{name:'Read in English'}).click();
-  assert.equal(await page.locator('#publication-count').innerText(),'14 papers');
+  assert.equal(await page.locator('#publication-count').innerText(),'13 papers');
   await page.evaluate(()=>{document.documentElement.style.scrollBehavior='auto';window.scrollTo(0,0);document.activeElement?.blur();});
   await page.waitForFunction(()=>scrollY===0);
   await page.screenshot({path:path.join(output,'desktop-publications.png'),fullPage:true});

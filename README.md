@@ -21,7 +21,7 @@
 
 - `index.html`：个人简介、研究方向列表、代表作、教育经历、学术服务。
 - `research.html`：研究方向与科研项目。
-- `publications.html`：14 篇第一／通讯作者论文，支持检索、年份筛选、BibTeX 复制与下载。
+- `publications.html`：13 篇第一／通讯作者论文，支持检索、年份筛选、BibTeX 复制与下载。
 - 网站不提供个人简历 PDF 下载；原始中英文简历保留在本地，作为资料参考。
 - `data/publications.json`：论文信息，期刊指标与接收状态按当前中文版简历填写；公开 DOI 的作者及卷页元数据已通过 Crossref 核对，SCIS 按期刊官网记录。
 - `tools/build_site.py`：使用 Python 标准库重新生成全部页面与 BibTeX 文件。
@@ -30,4 +30,4 @@
 
 更新数据后，在本目录运行 `python3 tools/build_site.py` 并重新上传生成的页面、`assets/publications.js` 和 BibTeX 文件。头像为 `assets/portrait.jpg`。
 
-目前 QST 论文按简历标为已接收，未补造 DOI；IJSS 已于 2026 年 11 月 6 日在线发表，DOI 为 10.1080/00207721.2026.2756564，页码 1–24，尚无卷期；ASC 使用 2027 年卷期年份。页面不含占位链接或虚构学术信息。
+IJSS 已于 2026 年 11 月 6 日在线发表，DOI 为 10.1080/00207721.2026.2756564，页码 1–24，尚无卷期；ASC 使用 2027 年卷期年份。页面不含占位链接或虚构学术信息。

@@ -501,42 +501,6 @@
     "url": "https://doi.org/10.1016/j.conengprac.2025.106405"
   },
   {
-    "id": "qst",
-    "journal": "Quantum Science and Technology",
-    "title": "Certified Worst-Case Fidelity Bounds for Quantum Gates under Structured Uncertainty",
-    "year": 2026,
-    "doi": null,
-    "role": "corresponding",
-    "tags": [
-      "control",
-      "quantum"
-    ],
-    "selected": false,
-    "accepted": true,
-    "impact": 4.9,
-    "quartile": "Q1",
-    "top": false,
-    "esi": false,
-    "authors": [
-      {
-        "given": "Jiaxin",
-        "family": "Liu"
-      },
-      {
-        "given": "Feng",
-        "family": "Li"
-      },
-      {
-        "given": "Zhuo",
-        "family": "Wang"
-      },
-      {
-        "given": "Min",
-        "family": "Zhang"
-      }
-    ]
-  },
-  {
     "id": "iscience",
     "journal": "iScience",
     "title": "In Situ Real-Time Measurement for Electron Spin Polarization in Atomic Spin Gyroscopes",

@@ -19,7 +19,6 @@ SPECS = [
     ('measurement', 'Measurement', 'Spin-Decoupling Calibration Method for Coil Constants in Optically Pumped Comagnetometers', '10.1016/j.measurement.2025.118819', 'first', ['quantum'], False),
     ('nld', 'Nonlinear Dynamics', 'Heating Temperature Control and Driving Voltage Nonlinear Feedback of LCVR for Stabilizing Laser Power in Atomic Spin Gyroscopes', None, 'first', ['control', 'quantum'], False),
     ('cep', 'Control Engineering Practice', 'Exponential Decay Adaptive Robust Control for Electron Spin Magnetization in Atomic Spin Gyroscopes', '10.1016/j.conengprac.2025.106405', 'first', ['control', 'quantum'], False),
-    ('qst', 'Quantum Science and Technology', 'Certified Worst-Case Fidelity Bounds for Quantum Gates under Structured Uncertainty', None, 'corresponding', ['control', 'quantum'], False),
     ('iscience', 'iScience', 'In Situ Real-Time Measurement for Electron Spin Polarization in Atomic Spin Gyroscopes', '10.1016/j.isci.2025.111757', 'first', ['quantum'], True),
     ('ijss', 'International Journal of Systems Science', 'PI-FAS-CLO: Physics-Informed Fully Actuated System-Coordinate Learning Observer', '10.1080/00207721.2026.2756564', 'first', ['learning', 'control'], False),
     ('aqt', 'Advanced Quantum Technologies', 'Effects of Stochastic Magnetic Noise on the SERF Co-Magnetometer', '10.1002/qute.202400040', 'first', ['quantum'], False),
@@ -29,7 +28,6 @@ AUTHOR_OVERRIDES = {
     'scis': [('Feng', 'Li'), ('Zhuo', 'Wang'), ('Fei-Yue', 'Wang'), ('Ruigang', 'Wang'), ('Yonglin', 'Tian'), ('Haoying', 'Pang'), ('Jiahang', 'Li'), ('Qinglai', 'Wei'), ('Derong', 'Liu')],
     'fr': [('Feng', 'Li'), ('Zhuo', 'Wang'), ('Haoying', 'Pang'), ('Jiahang', 'Li'), ('Xinxiu', 'Zhou'), ('Xusheng', 'Lei'), ('Ruigang', 'Wang'), ('Wei', 'Quan')],
     'tsmcs': [('Feng', 'Li'), ('Zhuo', 'Wang'), ('Derong', 'Liu'), ('Kai', 'Wei'), ('Shan', 'Xue'), ('Ruigang', 'Wang'), ('Xinxiu', 'Zhou'), ('Haoying', 'Pang'), ('Qi', 'Zheng'), ('Jiahang', 'Li'), ('Xusheng', 'Lei'), ('Wei', 'Quan')],
-    'qst': [('Jiaxin', 'Liu'), ('Feng', 'Li'), ('Zhuo', 'Wang'), ('Min', 'Zhang')],
     'ijss': [('Feng', 'Li'), ('Min', 'Zhang'), ('Zhuo', 'Wang'), ('Jiahang', 'Li'), ('Ruigang', 'Wang')],
 }
 def get(url):
