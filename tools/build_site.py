@@ -155,6 +155,10 @@ education = '''<ol class="timeline">
 <li><span class="timeline-date">2016 — 2020</span><div><h3>'''+bi('Shandong University of Science and Technology','山东科技大学')+'''</h3><p>'''+bi('B.Eng. in Measurement and Control Technology and Instrumentation','测控技术与仪器 · 工学学士')+'</p></div></li></ol>'
 home += section('Education & appointments','教育及工作经历',education)
 
+honors = '''<ol class="timeline">
+<li><span class="timeline-date">2026.11</span><div><h3>'''+bi('Best Peer Reviewer','最佳审稿人奖')+'''</h3><p>'''+bi('3rd International Symposium on AI and Cybersecurity (IEEE ISAICS 2026)','2026 年 IEEE 第三届人工智能与网络安全国际会议（IEEE ISAICS 2026）')+'''</p></div></li></ol>'''
+home += section('Honors & awards','荣誉与奖励',honors,id='honors')
+
 service = '''<ul class="service-list">
 <li>'''+bi('Editorial Board Member','编委')+''', <i>International Journal of Intelligent Control and Systems</i> (IJICS).</li>
 <li>'''+bi('Youth Editorial Board Member','青年编委')+''', <i>Advanced Information and Communication</i> (AIC).</li>
