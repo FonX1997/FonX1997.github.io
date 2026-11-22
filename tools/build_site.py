@@ -156,7 +156,8 @@ education = '''<ol class="timeline">
 home += section('Education & appointments','教育及工作经历',education)
 
 honors = '''<ol class="timeline">
-<li><span class="timeline-date">2026.11</span><div><h3>'''+bi('Best Peer Reviewer','最佳审稿人奖')+'''</h3><p>'''+bi('3rd International Symposium on AI and Cybersecurity (IEEE ISAICS 2026)','2026 年 IEEE 第三届人工智能与网络安全国际会议（IEEE ISAICS 2026）')+'''</p></div></li></ol>'''
+<li><span class="timeline-date">2026.11</span><div><h3>'''+bi('Best Peer Reviewer','最佳审稿人奖')+'''</h3><p>'''+bi('3rd International Symposium on AI and Cybersecurity (IEEE ISAICS 2026)','2026 年 IEEE 第三届人工智能与网络安全国际会议（IEEE ISAICS 2026）')+'''</p></div></li>
+<li><span class="timeline-date">2026.11</span><div><h3>'''+bi('Best Track Organization Award','最佳分论坛组织奖')+'''</h3><p>'''+bi('3rd International Symposium on AI and Cybersecurity (IEEE ISAICS 2026)','2026 年 IEEE 第三届人工智能与网络安全国际会议（IEEE ISAICS 2026）')+'''</p></div></li></ol>'''
 home += section('Honors & awards','荣誉与奖励',honors,id='honors')
 
 service = '''<ul class="service-list">
